@@ -1,8 +1,11 @@
 // ignore_for_file: avoid_print
-import 'dart:async';
-import 'dart:io';
-import 'package:firebase_dart/firebase_dart.dart';
-import 'assets.dart';
+
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/cupertino.dart';
+import 'package:pm_web/firebase_options.dart';
 
 class Database {
   static late FirebaseApp app;
@@ -12,24 +15,13 @@ class Database {
   static DatabaseReference? dbRef;
   static FirebaseStorage? storage;
   static Reference? storageRef;
-
-  static Timer? urgentTimer;
-
-  static const options = FirebaseOptions(
-    apiKey: 'AIzaSyA2wiWndvqD2i0noXnh-b-xP8grwGL1AWA',
-    appId: '1:220469906162:web:59b2cbd79ea3ed0cd19e6b',
-    messagingSenderId: '220469906162',
-    authDomain: 'example-f1815.firebaseapp.com',
-    databaseURL:
-        'https://example-f1815-default-rtdb.europe-west1.firebasedatabase.app',
-    storageBucket: 'example-f1815.appspot.com',
-    projectId: 'example-f1815',
-  );
+  static ValueNotifier<bool> isPCConnected = ValueNotifier<bool>(false);
 
   static Future<bool> init() async {
     if (test == null) {
       try {
-        Database.test = await Firebase.initializeApp(options: options);
+        Database.test =
+            await Firebase.initializeApp(options: DefaultFirebaseOptions.web);
       } on Exception catch (e) {
         print(e);
         return false;
@@ -48,7 +40,7 @@ class Database {
     }
     if (Database.db == null) {
       try {
-        Database.db = FirebaseDatabase(app: app);
+        Database.db = FirebaseDatabase.instance;
       } on Exception catch (e) {
         print(e);
         return false;
@@ -56,7 +48,7 @@ class Database {
     }
     if (Database.dbRef == null) {
       try {
-        Database.dbRef = db?.reference();
+        Database.dbRef = db?.ref();
       } on Exception catch (e) {
         print(e);
         return false;
@@ -78,67 +70,11 @@ class Database {
         return false;
       }
     }
-    Database.dbRef?.child('actions').onChildChanged.listen((event) async {
-      if (event.snapshot.value) {
-        if (urgentTimer == null) {
-          int tick = await Database.dbRef?.child('actions/time').get();
-          urgentTimer =
-              Timer.periodic(const Duration(seconds: 1), (timer) async {
-            if (tick != 0) {
-              tick--;
-              print('TICK : $tick');
-            } else {
-              UploadButton.timer?.cancel();
-              UploadButton.isUploading.value = false;
-              Assets.actionTimer?.cancel();
-              Assets.isUploading == false;
-              if (event.snapshot.key == 'shutdown') {
-                urgentTimer?.cancel();
-                try {
-                  final result = await InternetAddress.lookup('google.com');
-                  if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-                    await Database.dbRef
-                        ?.child('connection')
-                        .update({'reason': 'PC set to shutdown (urgent)'});
-                    await Database.dbRef?.child('actions/shutdown').set(false);
-                  }
-                } on SocketException catch (e) {
-                  print('ERROR : $e');
-                }
-                await Process.run(runInShell: true, 'shutdown', ['/s']);
-              } else if (event.snapshot.key == 'hibernate') {
-                urgentTimer?.cancel();
-                try {
-                  final result = await InternetAddress.lookup('google.com');
-                  if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-                    await Database.dbRef
-                        ?.child('connection')
-                        .update({'reason': 'PC set to hibernate (urgent)'});
-                    await Database.dbRef?.child('actions/hibernate').set(false);
-                  }
-                } on SocketException catch (e) {
-                  print('ERROR : $e');
-                }
-                await Process.run(runInShell: true, 'shutdown', ['/h']);
-              } else {
-                urgentTimer?.cancel();
-              }
-            }
-          });
-        }
+    Database.dbRef?.child('connection/connected').onValue.listen((event) async {
+      if (event.snapshot.value == true) {
+        Database.isPCConnected.value = true;
       } else {
-        urgentTimer?.cancel();
-      }
-    });
-    Database.dbRef?.child('.info/connected').onValue.listen((event) async {
-      if (event.snapshot.value) {
-        Database.dbRef
-            ?.child('connection')
-            .onDisconnect()
-            .update({'lastSeen': ServerValue.timestamp, 'connected': false});
-        await Database.dbRef
-            ?.child('connection')
-            .update({'connected': true, 'reason': 'Connection issues'});
+        Database.isPCConnected.value = false;
       }
     });
     return true;
