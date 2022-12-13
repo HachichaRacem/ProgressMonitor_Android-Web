@@ -1,16 +1,19 @@
-# progress_monitor
+## Progress Monitor
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+A new personal Flutter project.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+# Description
+    • Ability to caputre the screen every user-specified seconds.
+    • Ability to apply actions such as shutdown, hibertinate to the computer remotely after a user-specified time too.
+    • Images are uploaded to a database and displayed into a website, an android application and the software iself.
+    • Images are compressed for less data usage
+    
+# With the help of
+    • Firebase.
+    • A batch file that captures the screen.
+    • Batch commands to apply the user actions.
