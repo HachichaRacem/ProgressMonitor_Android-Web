@@ -27,4 +27,4 @@ Settings Page
 # Technologies used
     • Flutter
     • Firebase.
-    • Batch files.
+    • Batch files and commands.
