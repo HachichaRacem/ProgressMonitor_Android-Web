@@ -14,8 +14,7 @@ A new personal Flutter project.
     • Images are compressed for less data usage
     
 # Screenshots
-![](https://i.ibb.co/WpbRCWV/progress-monitor-5-29-2023-4-34-09-PM.png)
-![](https://ibb.co/GWSsf3n)
+![](https://i.ibb.co/WpbRCWV/progress-monitor-5-29-2023-4-34-09-PM.png) ![](https://i.ibb.co/ZBDHR1G/progress-monitor-5-29-2023-4-36-32-PM.png)
     
 # With the help of
     • Firebase.
