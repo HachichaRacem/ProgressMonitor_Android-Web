@@ -13,6 +13,10 @@ A new personal Flutter project.
     • Images are uploaded to a database and displayed into a website, an android application and the software iself.
     • Images are compressed for less data usage
     
+# Screenshots
+(https://ibb.co/2YDpJ7Z)
+(https://ibb.co/GWSsf3n)
+    
 # With the help of
     • Firebase.
     • A batch file that captures the screen.
