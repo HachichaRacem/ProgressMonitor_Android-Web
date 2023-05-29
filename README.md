@@ -14,7 +14,10 @@ A new personal Flutter project.
     • Images are compressed for less data usage
     
 # Screenshots
+Home Page
 ![Home Page](https://i.postimg.cc/zBN6d9jv/progress-monitor-5-29-2023-4-36-32-PM.png)
+
+Settings Page
 ![Settings Page](https://i.postimg.cc/6p7kTVqW/progress-monitor-5-29-2023-4-34-09-PM.png) 
     
 # With the help of
