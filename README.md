@@ -14,8 +14,8 @@ A new personal Flutter project.
     • Images are compressed for less data usage
     
 # Screenshots
-(https://ibb.co/2YDpJ7Z)
-(https://ibb.co/GWSsf3n)
+![](https://ibb.co/2YDpJ7Z)
+![](https://ibb.co/GWSsf3n)
     
 # With the help of
     • Firebase.
