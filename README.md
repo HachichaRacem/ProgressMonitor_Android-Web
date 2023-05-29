@@ -16,7 +16,7 @@ A new personal Flutter project.
 # Screenshots
 Home Page
 
-![Home Page](https://i.postimg.cc/zBN6d9jv/progress-monitor-5-29-2023-4-36-32-PM.png)
+![Home Page](https://i.postimg.cc/yxbQPpjr/progress-monitor-5-29-2023-4-49-53-PM.png)
 
 Settings Page
 
