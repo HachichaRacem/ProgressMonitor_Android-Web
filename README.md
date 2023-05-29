@@ -24,7 +24,7 @@ Settings Page
 
 ![Settings Page](https://i.postimg.cc/6p7kTVqW/progress-monitor-5-29-2023-4-34-09-PM.png) 
     
-# With the help of
+# Technologies used
+    • Flutter
     • Firebase.
-    • A batch file that captures the screen.
-    • Batch commands to apply the user actions.
+    • Batch files.
