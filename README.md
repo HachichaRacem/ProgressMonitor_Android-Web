@@ -2,7 +2,7 @@
 
 
 
-A new personal Flutter project.
+A new personal Flutter project, the idea is to be able to monitor your computer even partially while being away from it and to be able to take urgent actions in case any malicious activities were caught.
 
 
 
