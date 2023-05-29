@@ -9,10 +9,10 @@ A new personal Flutter project.
 
 # Description
     • Ability to caputre the screen every user-specified seconds.
-    • Ability to apply actions such as shutdown, hibertinate to the computer remotely after a user-specified time.
     • Images are uploaded to a database and displayed into a website, an android application and the software iself.
     • Images are compressed for less data usage.
-    • Live indicators in the android and the web version of the application connectivity status.
+    • Ability to apply actions such as shutdown and hibertinate to the computer remotely and locally after a user-specified time.
+    • Live indicators in the android and the web version of the application's connectivity status.
         - Accompanied with time and date.
     
 # Screenshots
