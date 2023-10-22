@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "864742088604",
+    "firebase_url": "https://progress-monitor-f9fae-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "progress-monitor-f9fae",
+    "storage_bucket": "progress-monitor-f9fae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:864742088604:android:49ea2d7b3f6926573c7259",
+        "android_client_info": {
+          "package_name": "com.example.pm_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "864742088604-36ildjocb1113c3utvsethtrhk3qimuj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_iocUNeJIz-6De7wwlqK_XhkyXtUh9jY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "864742088604-36ildjocb1113c3utvsethtrhk3qimuj.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "864742088604-cth3miaoroo0gijm18e2124n85536nd5.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.progressMonitor"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
